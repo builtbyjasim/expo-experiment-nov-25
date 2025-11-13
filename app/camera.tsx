@@ -1,4 +1,5 @@
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
+import * as MediaLibrary from "expo-media-library";
 import { useRef, useState } from "react";
 import {
     Button,
@@ -33,6 +34,18 @@ export default function CameraScreen() {
     }
   }
 
+  const savePhoto = async () => {
+    if (!photoUri) {
+      return;
+    }
+    try {
+      await MediaLibrary.saveToLibraryAsync(photoUri);
+      setPhotoUri(null);
+    } catch (error) {
+      console.log("photo save error: ", error);
+    }
+  };
+
   function toggleCameraFacing() {
     setFacing((current) => (current === "back" ? "front" : "back"));
   }
@@ -40,10 +53,10 @@ export default function CameraScreen() {
   return (
     <View style={styles.container}>
       {photoUri ? (
-        // 🖼️ show photo preview after capture
         <View style={styles.previewContainer}>
           <Image source={{ uri: photoUri }} style={styles.preview} />
           <Button title="Retake" onPress={() => setPhotoUri(null)} />
+          <Button title="Save" onPress={savePhoto} />
         </View>
       ) : (
         <>

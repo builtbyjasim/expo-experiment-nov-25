@@ -24,6 +24,10 @@ export default function RootLayout() {
           name="test"
           options={{ title: "Test", headerBackTitle: "Home" }}
         />
+        {/* <Stack.Screen
+          name="camera"
+          options={{ title: "Camera", headerBackTitle: "Home" }}
+        /> */}
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
