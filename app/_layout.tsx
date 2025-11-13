@@ -20,6 +20,10 @@ export default function RootLayout() {
           name="modal"
           options={{ presentation: "modal", title: "Modal" }}
         />
+        <Stack.Screen
+          name="test"
+          options={{ title: "Test", headerBackTitle: "Home" }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
