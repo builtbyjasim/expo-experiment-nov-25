@@ -22,6 +22,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="test" options={{ title: "Test" }} />
         <Stack.Screen name="camera" options={{ title: "Camera" }} />
+        <Stack.Screen name="animation" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

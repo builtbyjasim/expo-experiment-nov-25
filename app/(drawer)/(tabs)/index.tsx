@@ -26,6 +26,10 @@ export default function HomeScreen() {
       <Button onPress={() => router.push("/test")} title="Goto Test Screen" />
       <Button onPress={() => router.push("/modal")} title="Open Modal" />
       <Button onPress={() => router.push("/camera")} title="Open Camera" />
+      <Button
+        onPress={() => router.push("/animation/bottom-sheet")}
+        title="Animation"
+      />
     </ParallaxScrollView>
   );
 }
