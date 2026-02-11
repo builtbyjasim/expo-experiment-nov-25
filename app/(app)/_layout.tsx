@@ -5,9 +5,9 @@ export default function AppLayout() {
     <Drawer>
       <Drawer.Screen
         name="(tabs)"
-        options={{ headerShown: true, title: "home" }}
+        options={{ headerShown: true, title: "Home" }}
       />
-      <Drawer.Screen name="settings" options={{ title: "setting" }} />
+      <Drawer.Screen name="settings" options={{ title: "Setting" }} />
     </Drawer>
   );
 }

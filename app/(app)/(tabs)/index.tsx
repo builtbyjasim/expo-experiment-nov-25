@@ -24,11 +24,12 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
 
-      <Button onPress={() => router.push("/modal")} title="Open Modal" />
-      <Button onPress={() => router.push("/camera")} title="Open Camera" />
+      <Button onPress={() => router.push("/auth/login")} title="login" />
+      <Button onPress={() => router.push("/modal")} title="open modal" />
+      <Button onPress={() => router.push("/camera")} title="camera" />
       <Button
-        onPress={() => router.push("/animation/bottom-sheet")}
-        title="Animation"
+        onPress={() => router.navigate("/animation/bottom-sheet")}
+        title="animation"
       />
     </ParallaxScrollView>
   );
