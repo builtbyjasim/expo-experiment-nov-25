@@ -23,7 +23,7 @@ export default function HomeScreen() {
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
-      <Button onPress={() => router.push("/test")} title="Goto Test Screen" />
+
       <Button onPress={() => router.push("/modal")} title="Open Modal" />
       <Button onPress={() => router.push("/camera")} title="Open Camera" />
       <Button
