@@ -38,7 +38,7 @@ const HalalFinderScreen = () => {
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
 
-  console.log("places -->", places);
+  console.log("places --> ", JSON.stringify(places, null, 1));
 
   // 1. Get User Permission and Location
   useEffect(() => {
@@ -75,7 +75,7 @@ const HalalFinderScreen = () => {
 
     const query = `
       [out:json]
-      [timeout:10]
+      // [timeout:60]
       ;
       (
         node["amenity"="place_of_worship"]["religion"="muslim"](around:${radius},${lat},${lon});
@@ -89,12 +89,14 @@ const HalalFinderScreen = () => {
         "https://overpass-api.de/api/interpreter",
         `data=${encodeURIComponent(query)}`,
       );
-      console.log("response -->", response);
+      console.log("response -->", JSON.stringify(response.data, null, 2));
 
       // Filter valid data
       const validPlaces = response.data.elements.filter(
-        (el) => el.lat && el.lon,
+        (el) => el.center && el.center.lat && el.center.lon,
       );
+      console.log("validPlaces -> ", JSON.stringify(validPlaces));
+
       setPlaces(validPlaces);
     } catch (error) {
       console.error("Error fetching data: ", error, error?.response?.data);
@@ -154,12 +156,12 @@ const HalalFinderScreen = () => {
           <Marker
             key={index}
             coordinate={{
-              latitude: place.lat,
-              longitude: place.lon,
+              latitude: place.center.lat,
+              longitude: place.center.lon,
             }}
             title={place.tags?.name || "Masjid"}
             description={place.tags?.denomination || "Muslim Place of Worship"}
-            onPress={() => openDirections(place.lat, place.lon)}
+            onPress={() => openDirections(place.center.lat, place.center.lon)}
           />
         ))}
       </MapView>
