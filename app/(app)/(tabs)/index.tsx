@@ -31,6 +31,14 @@ export default function HomeScreen() {
         onPress={() => router.navigate("/animation/bottom-sheet")}
         title="animation"
       />
+      <Button
+        onPress={() => router.navigate("/screens/chatgpt-overpass-api")}
+        title="chatgpt-overpass-api"
+      />
+      <Button
+        onPress={() => router.navigate("/screens/z-ai-nearby-mosque")}
+        title="z-ai-overpass-api"
+      />
     </ParallaxScrollView>
   );
 }
