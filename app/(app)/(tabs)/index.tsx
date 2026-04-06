@@ -39,6 +39,11 @@ export default function HomeScreen() {
         onPress={() => router.navigate("/screens/z-ai-nearby-mosque")}
         title="z-ai-overpass-api"
       />
+
+      <Button
+        onPress={() => router.navigate("/screens/detects-installed-UPI-apps")}
+        title="Detects installed UPI apps"
+      />
     </ParallaxScrollView>
   );
 }
